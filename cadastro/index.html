@@ -12,32 +12,64 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <title>Login | SurfChallenge </title>
+    <title>Cadastro | SurfChallenge </title>
 </head>
 <body>
-    
-    <div class="main-login">
-       
-        <h1> Faça o seu login e venha surfar na onda do conhecimento </h1>
         
-        <div class="box-login">
+        <div class="box-cadastro">
+
+              
+                <h1> CADASTRE-SE </h1>
             
-                <h1> Login </h1>
 
                 <div class="textfield">
-                    <label for="usuario"> Usuário </label>
-                    <input type="text" class="usuario" placeholder="Usuário">
+                    <label for="nome"> Nome </label>
+                    <input type="text" class="nome" placeholder="Nome Completo">
+                </div>
+
+                <div class="alinhar-datas">
+                    <div class="textfield">
+                        <label for="dtNasc"> Data de Nascimento </label>
+                        <input type="date" class="dtNasc">
+                    </div>
+                    
+                    <div class="textfield">
+                        <label for="dtWindsurf"> Data de inicio no windsurf </label>
+                        <input type="date" class="dtWindsurf">
+                    </div>
                 </div>
 
                 <div class="textfield">
-                    <label for="senha"> Senha </label>
+                    <label for="dtWindsurf"> Qual classe você patica atualmente? </label>
+                    <select type="text" class="dtWindsurf" placeholder="Nome da classe">
+                        <option value="opcaoInicial" disabled selected> Escolha uma opção </option>
+                        <option value="1"> Fórmula </option>
+                        <option value="2"> Wave </option>
+                        <option value="3"> Freestyle </option>
+                        <option value="4"> Slalom </option>
+                        <option value="6"> Mistral </option>
+                        <option value="6"> Raceboard </option>
+                    </select>
+                </div>
+
+                <div class="textfield">
+                    <label for="usuario"> Coloque o seu email </label>
+                    <input type="text" class="usuario" placeholder="Email">
+                </div>
+
+                <div class="textfield">
+                    <label for="senha"> Crie uma senha </label>
                     <input type="password" class="senha" placeholder="Senha">
                 </div>
 
-                <button class="button-login"> Login </button>
+                <div class="textfield">
+                    <label for="senha"> Confirme sua senha </label>
+                    <input type="password" class="conf-senha" placeholder="Senha">
+                </div>
+
+                <button class="button-cadastro"> Cadastrar </button>
         
         </div>
-    </div>
-
+    
 </body>
 </html>
