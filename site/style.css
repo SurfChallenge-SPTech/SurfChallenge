@@ -1,0 +1,346 @@
+/* ESTILIZAÇÃO GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #121b79;
+    height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ESTILIZAÇÃO DO TOPO DO SITE */
+
+.backgroundHome {
+    background-image: url("/site/images/backgoundHome.png");
+    background-size: cover;
+    height: 100%;
+}
+
+.buttonEntrar button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #B9DAFA;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+    
+}
+
+.txt-topo-site h1 {
+    color: #B9DAFA;
+    font-size: 100px;
+    font-weight: 500;
+}
+
+.txt-topo-site h3 {
+    color: #B9DAFA;
+    font-size: 100px;
+    font-weight: 500;
+}
+
+.txt-topo-site p {
+    color: #B9DAFA;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+button:hover,
+form .btn-enviar input:hover {
+    box-shadow: 0px 0px 8px #B9DAFA;
+    transform: scale(1.01);
+}
+
+header {
+    padding: 40px 4%;
+}
+
+header img {
+    width: 130px;
+    border: 0;
+    border-radius: 65px;
+}
+
+header>.interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    color: #B9DAFA;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header nav.nav-list a:hover {
+    color: #B9DAFA;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.nav-list ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+.buttonQueroIniciar button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #B9DAFA;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    margin-left: 53px;
+}
+
+section.topo-do-site {
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: start;
+}
+
+
+.topo-do-site h1 {
+    color: #B9DAFA;
+    font-size: 50px;
+    line-height: 40px;
+}
+
+.topo-do-site h3 {
+    color: #B9DAFA;
+    font-size: 19.8px;
+    line-height: 40px;
+}
+
+.txt-topo-site p {
+    color: #B9DAFA;
+    margin-top: 12px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    text-align: center;
+    word-wrap: break-word;
+    width: 400px;
+}
+
+.topo-do-site .img-topo-site img {
+    width: 80%;
+    height: 55%;
+}
+
+/* ESTILO DO SOBRE NÓS */
+section.sobre {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 40px 10px #2935B2;
+}
+
+section.sobre .txt-sobre h2 {
+    color: #B9DAFA;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section.sobre .txt-sobre p {
+    color: #B9DAFA;
+    text-align: center;
+    line-height: 28px;
+    font-size: 21px;
+    width: 50%;
+    margin-left: 390px;
+}
+
+
+/* ESTILO DAS CLASSES WINDSURF*/
+
+section.classes {
+    padding: 40px 4%;
+}
+
+section.classes h2 {
+    color: #B9DAFA;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section.classes .classesColumn {
+    display: flex;
+}
+
+.classes .classes-box {
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .2s;
+}
+
+.classes .classes-box:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px #ffffff78;
+}
+
+.classes .classes-box img {
+    height: 55%;
+    width: 50%;
+}
+
+.classes .classes-box h3 {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+
+/* ESTILILIZAÇÃO DO CHALLENGE */
+section.challenge {
+    display: flex;
+    padding: 80px 4%;
+    box-shadow: 0 0 40px 10px #2935B2;
+    justify-content: space-around;
+    margin-top: 60px;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.challenge h2 {
+    color: #B9DAFA;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.img-fundo {
+    width: 800px;
+    height: 600px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 9s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+}
+
+.img-fundo:hover {
+    background-position: 100% 100%;
+}
+
+.escurecer-img {
+    position: absolute;;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: .15s;
+}
+
+.escurecer-img:hover {
+    opacity: 0.11;
+}
+
+/* ESTILIZAÇÃO DO CONTATO */
+section.contato {
+    padding: 80px 4%;
+}
+
+section.contato h2{
+    color: #B9DAFA;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    background-color: #fff;
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: #000;
+    font-size: 15px;
+}
+
+form textarea {
+    resize: none;
+    max-height: 200px;
+}
+
+form .button-enviar-email {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .button-enviar-emailinput {
+    width: 120px;
+    background-color: #B9DAFA;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+/* ESTILLIZAÇÃO DA ULTIMA PARTE */
+
+footer {
+    padding: 40px 4%;
+    box-shadow: 0 0 40px 10px #2935B2;
+}
+
+footer .flex {
+    justify-content: space-between;
+}
+
+footer .linha-footer {
+    padding: 20px 0;
+}
+
+.borda {
+    border-top: 2px solid #B9DAFA;
+}
+
+footer u {
+    color: #B9DAFA;
+}
