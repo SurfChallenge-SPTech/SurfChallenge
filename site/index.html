@@ -36,7 +36,7 @@
 
             <div class="buttonEntrar">
                 <a href="#">
-                    <button> Entrar </button>
+                    <button onclick="buttonEntrar()"> Entrar </button>
                 </a>
             </div><!--buttonEntrar-->
 
@@ -52,7 +52,7 @@
 
                         <div class="buttonQueroIniciar">
                             <a href="#"> 
-                                <button>Quero iniciar o Challenge</button>
+                                <button onclick="iniciarChallenge()">Quero iniciar o Challenge</button>
                             </a>
                         </div>
                     </div><!--txt-topo-site-->
@@ -70,50 +70,44 @@
         <section id="scroll.3" class="classes">
     
                 <h2 class="titulo">CLASSES</h2>
-
-                <div class="classesColumn">
-
+                <div class="grid-box">
                     <div class="classes-box">
-                        <img src="image/windHome.png">
+                        <img src="image/formula.jpg">
                         <h3>Fórmula</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <p>Velejo de velocidade e longa distância. É uma classe para velejadores que se desejam iniciar no windsurf.</p>
                     </div><!--classes-box-->
 
                     <div class="classes-box">
-                        <img src="image/windHome.png">
+                        <img src="image/wave.jpg">
                         <h3>Wave</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <p>Velejar com pranchas mais ágeis e projetadas para manobras em ondas grandes e desafiadoras.</p>
                     </div><!--classes-box-->
 
                     <div class="classes-box">
-                        <img src="image/windHome.png">
+                        <img src="image/freestyle.jpg">
                         <h3>Freestyle</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <p>Velejo com manobras e truques acrobáticos com pranchas mais curtas.</p>
                     </div><!--classes-box-->
 
-                </div> <!-- classesColumn-->
-
-                <div class="classesColumn">
-
                     <div class="classes-box">
-                        <img src="image/windHome.png">
+                        <img src="image/slalom.jpg">
                         <h3>Slalom</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <p>Velejo com obstáculos com pranchas projetadas para performar em velocidade e agilidade em torno das boias.</p>
                     </div><!--classes-box-->
 
                     <div class="classes-box">
-                        <img src="image/windHome.png">
+                        <img src="image/mistral.jpg">
                         <h3>Mistral</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <p>Atual divisão olímpica, estáveis e fáceis de manobrar, tornando-as adequadas tanto para iniciantes quanto para velejadores mais avançados.</p>
                     </div><!--classes-box-->
 
                     <div class="classes-box">
-                        <img src="image/windHome.png">
+                        <img src="image/raceboard.jpg">
                         <h3>Raceboard</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                        <p>Pranchas estreitas e longas projetadas especificamente para competições de corrida em águas planas.</p>
                     </div><!--classes-box-->
-
-                </div><!--classesColumn-->
+                </div>
+             
            
         </section><!--classes-->
 
@@ -155,3 +149,13 @@
 
 </body>
 </html>
+
+<script>
+    function buttonEntrar(){
+        window.location.href = '../login/index.html';
+    }
+
+    function iniciarChallenge(){
+        window.location.href = '../cadastro/index.html';
+    }
+</script>

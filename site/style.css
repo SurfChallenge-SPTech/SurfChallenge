@@ -18,7 +18,7 @@ html {
 /* ESTILIZAÇÃO DO TOPO DO SITE */
 
 body .backgroundHome {
-    background-image: url('site/image/background.png');
+    background-image: url(image/background.png);
     background-size: cover;
     height: 100%;
 }
@@ -186,11 +186,13 @@ section.classes h2 {
     margin-bottom: 20px;
 }
 
-section.classes .classesColumn {
-    display: flex;
+.grid-box {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
 }
 
-.classes .classes-box {
+.classes-box {
     color: #fff;
     padding: 40px;
     border-radius: 20px;
@@ -198,17 +200,18 @@ section.classes .classesColumn {
     transition: .2s;
 }
 
-.classes .classes-box:hover {
+.classes-box:hover {
     transform: scale(1.01);
     box-shadow: 0 0 20px #ffffff78;
 }
 
-.classes .classes-box img {
+.classes-box img {
     height: 55%;
-    width: 50%;
+    width: 55%;
+    border-radius: 100px;
 }
 
-.classes .classes-box h3 {
+.classes-box h3 {
     font-size: 28px;
     margin: 20px 0;
 }

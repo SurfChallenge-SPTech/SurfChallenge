@@ -14,34 +14,24 @@
 
     <title>Cadastro | SurfChallenge </title>
 </head>
-<body>
-        
+<body>     
         <div class="box-cadastro">
 
-              
                 <h1> CADASTRE-SE </h1>
-            
-
+        
                 <div class="textfield">
                     <label for="nome"> Nome </label>
-                    <input type="text" class="nome" placeholder="Nome Completo">
-                </div>
-
-                <div class="alinhar-datas">
-                    <div class="textfield">
-                        <label for="dtNasc"> Data de Nascimento </label>
-                        <input type="date" class="dtNasc">
-                    </div>
-                    
-                    <div class="textfield">
-                        <label for="dtWindsurf"> Data de inicio no windsurf </label>
-                        <input type="date" class="dtWindsurf">
-                    </div>
+                    <input id="input_nomeUsuario" type="text" class="nome" placeholder="Nome Completo">
                 </div>
 
                 <div class="textfield">
+                    <label for="dtNasc"> Data de Nascimento </label>
+                    <input id="input_dtNasc" type="date" class="dtNasc">
+                </div>
+                    
+                <div class="textfield">
                     <label for="dtWindsurf"> Qual classe você patica atualmente? </label>
-                    <select type="text" class="dtWindsurf" placeholder="Nome da classe">
+                    <select id="select_classeAtual" type="text" class="dtWindsurf" placeholder="Nome da classe">
                         <option value="opcaoInicial" disabled selected> Escolha uma opção </option>
                         <option value="1"> Fórmula </option>
                         <option value="2"> Wave </option>
@@ -54,22 +44,37 @@
 
                 <div class="textfield">
                     <label for="usuario"> Coloque o seu email </label>
-                    <input type="text" class="usuario" placeholder="Email">
+                    <input id="input_emailUsuario" type="text" class="usuario" placeholder="Email">
                 </div>
 
                 <div class="textfield">
                     <label for="senha"> Crie uma senha </label>
-                    <input type="password" class="senha" placeholder="Senha">
+                    <input id="input_senha" type="password" class="senha" placeholder="Senha">
                 </div>
 
                 <div class="textfield">
                     <label for="senha"> Confirme sua senha </label>
-                    <input type="password" class="conf-senha" placeholder="Senha">
+                    <input id="input_confirmSenha" type="password" class="conf-senha" placeholder="Senha">
                 </div>
 
-                <button class="button-cadastro"> Cadastrar </button>
+                <button onclick="cadastar()" class="button-cadastro"> Cadastrar </button>
         
         </div>
     
 </body>
 </html>
+
+<script>
+
+    function cadastrar() {
+        const nomeUsuario = input_nomeUsuario.value
+        const dataNasc = input_dtNasc.value
+        const classeAtual = select_classeAtual.value
+        const emailUsuario = input_emailUsuario.value
+        const senha = input_senha.value
+        const confirmSenha = input_confirmSenha.value
+
+        
+    }
+
+</script>
