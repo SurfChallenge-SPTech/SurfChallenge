@@ -1,22 +1,26 @@
 var usuarioModel = require("../models/usuarioModel")
 
 function cadastrar(req, res){
-    var nomeUsuario = req.body.nomeUsuarioServer;
-    var dataNasc = req.body.dataNascServer;
-    var classeAtual = req.body.classeAtualServer;
-    var emailUsuario = req.body.emailUsuarioServer;
+    var nome = req.body.nomeServer;
+    var dtNascimento = req.body.dtNascimentoServer;
+    var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var classeAtual = req.body.classeAtualServer;
 
-    usuarioModel.cadastrar(nomeUsuario, dataNasc, classeAtual, emailUsuario, senha)
+    usuarioModel.cadastrar(nome, dtNascimento, email, senha, classeAtual)
 
-    .then( function (resposta)
-        {
-            res.json(resposta)
-        }
-    )
-    .catch(function (respostaErro)
-    {
-        console.log(respostaErro)
+    if (nome == undefined || dtNascimento == undefined || email == undefined || senha == undefined || classeAtual == undefined) {
+        res.status(400).send("Preencha todos os campos!");
+    }
+
+    usuarioModel.cadastrar(nome, dtNascimento, email, senha, classeAtual).then(function(resposta){
+        res.status(200).send("Usuário criado com sucesso!");
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
     })
+}
+
+module.exports = {
+    cadastrar
 }
 
