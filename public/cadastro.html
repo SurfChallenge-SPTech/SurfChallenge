@@ -90,8 +90,7 @@
             confirmacaoSenha == "" ||
             classeAtual == ""
         ) {
-            mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
+            alert("Preencha todos os campos!");
 
             return false;
         }  
@@ -112,8 +111,6 @@
                 classeAtualServer: classeAtual
             }),
         }) .then(msg => Swal.fire(msg.info))
-
-
     }
 
 

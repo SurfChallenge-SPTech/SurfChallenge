@@ -9,7 +9,15 @@ function cadastrar (nome, dtNascimento, email, senha, classeAtual){
     return database.executar(instrucaoSQL);
 }
 
+function autenticar() {
+    var instrucaoSQL = `
+    SELECT email, senha FROM usuario;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSQL);
+    return database.executar(instrucaoSQL);
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    autenticar
 }
 

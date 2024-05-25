@@ -3,14 +3,19 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
-//Criar rotas
+//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 
 router.post("/cadastrar",function (req, res){
-    // função a se chamada quando acessar /usuario/cadastrar
+    // função a ser chamada quando acessar /carros/cadastrar
     usuarioController.cadastrar(req,res)
 }) 
 
-// pode ser exportado 
+router.get("/autenticar", function (req, res) {
+    // função a ser chamada quando acessar /carros/autenticar
+    usuarioController.autenticar(req, res);
+});
+
+// Declarando que pode ser exportado 
 module.exports = router;
 
 
