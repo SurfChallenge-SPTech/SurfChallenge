@@ -16,9 +16,8 @@ html {
 }
 
 /* ESTILIZAÇÃO DO TOPO DO SITE */
-
-body .backgroundHome {
-    background-image: url(image/background.png);
+.backgroundHome {
+    background-image: url(../img/backgroundSite.png);
     background-size: cover;
     height: 100%;
 }

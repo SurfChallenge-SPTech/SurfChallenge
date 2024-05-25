@@ -1,13 +1,14 @@
 body {
     margin: 0;
     font-family: 'Roboto';
-    background-image: url('/cadastro/image/background.png');
+    background-image: url(../img/backgroundCadastro.png);
     background-repeat: no-repeat;
     background-size: cover; 
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     align-content: flex-start;
+    height: 100%;
 }
 
 .box-cadastro {
@@ -109,4 +110,13 @@ button:hover,
 form .button-cadastro input:hover {
     box-shadow: 0px 0px 8px #a2cdf7;
     transform: scale(1.01);
+}
+
+p {
+    color: #a2cdf7;
+    text-align: center;
+}
+
+p a{
+    color: #a2cdf7;
 }
