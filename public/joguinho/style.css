@@ -1,0 +1,71 @@
+* {
+    font-family: 'Roboto';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121B79;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+h1 {
+    color: #121B79;
+    font-size: 45px;
+}
+
+h2 {
+    color: #121B79;
+    font-weight: 500;
+}
+
+.titulo {
+    background-color: #B9DAFA;
+    width: 90%;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 10px;
+}
+
+.box-azul-claro {
+    background-color: #B9DAFA;
+    margin-top: 15px;
+    border-radius: 20px;
+    height: 570px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.tentativa {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+}
+
+.celula-vazia {
+    background-color: #B9DAFA;
+    color: #121B79;
+}
+
+.celula-input {
+    background-color: aliceblue;
+    border: 2px solid #121B79;
+}
+  
+td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    
+}

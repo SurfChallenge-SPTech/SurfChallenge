@@ -8,9 +8,7 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -63,8 +61,8 @@
             <input value="12345678" id="input_confirmSenha" type="password" class="conf-senha" placeholder="Senha">
         </div>
         <p> Já possui um cadastro? <a href="../public/login.html"> Clique aqui </span> </a>
-        
-        <button onclick="cadastrar()" class="button-cadastro"> Cadastrar </button>
+
+            <button onclick="cadastrar()" class="button-cadastro"> Cadastrar </button>
 
 
     </div>
@@ -93,7 +91,7 @@
             alert("Preencha todos os campos!");
 
             return false;
-        }  
+        }
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -110,7 +108,7 @@
                 senhaServer: senha,
                 classeAtualServer: classeAtual
             }),
-        }) .then(msg => Swal.fire(msg.info))
+        }).then(msg => Swal.fire(msg.info))
     }
 
 

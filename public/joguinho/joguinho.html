@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruzadinha de Windsurf</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- FIM GOOGLE FONTES -->
+    <link href="./script.js">
+</head>
+<body>
+
+    <div class="titulo">
+        <h1> Palavras-Cruzadas</h1>
+        <h2> Equipamentos do WindSurf </h2>
+    </div>
+    <div class="box-azul-claro">
+        <div class="tentativa">
+            <h3> Pergunta </h3>
+            <input placeholder="Coloque uma palavra" id="input_palavra">
+            <button onclick="verificar()"> Verificar </button>
+        </div>
+        <div class="tabela">
+            <table>
+                <!-- linha 0 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id="">1.</td>
+                </tr> <!-- fim da linha 0 -->
+
+                <!-- linha 1 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id="">2.</td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="q_quilha"></td>
+                </tr> <!-- fim da linha 1 -->
+                
+                <!-- linha 2 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="p_prancha"></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="u_quilha"></td>
+                </tr> <!-- fim da linha 2 -->
+
+                <!-- linha 3 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="r_prancha"></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="i_quilha"></td>
+                </tr> <!-- fim da linha 3 -->
+                
+                <!-- linha 4 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id="">3.</td>
+                    <td class="celula-input" id="m_mastro"></td>
+                    <td class="celula-input" id="a_mastro"></td>
+                    <td class="celula-input" id="s_mastro"></td>
+                    <td class="celula-input" id="t_mastro"></td>
+                    <td class="celula-input" id="r_mastro"></td>
+                    <td class="celula-input" id="o_mastro"></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="l_quilha"></td>
+                </tr> <!-- fim da linha 4 -->
+
+                <!-- linha 5 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="n_prancha"></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="h_quilha"></td>
+                </tr> <!-- fim da linha 5 -->
+                
+                <!-- linha 6 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id="">4.</td>
+                    <td class="celula-input" id="c_prancha"></td>
+                    <td class="celula-input" id="a1_cambada"></td>
+                    <td class="celula-input" id="m_cambada"></td>
+                    <td class="celula-input" id="b_cambada"></td>
+                    <td class="celula-input" id="a2_cambada"></td>
+                    <td class="celula-input" id="d_cambada"></td>
+                    <td class="celula-input" id="a_quilha"></td>
+                </tr> <!-- fim da linha 6 -->
+
+                <!-- linha 7 -->
+                <tr>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-input" id="h_prancha"></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                </tr> <!-- fim da linha  -->
+                
+                <!-- linha 8 -->
+                <tr>
+                    <td class="celula-vazia" id="">5.</td>
+                    <td class="celula-input" id="r1_retranca"></td>
+                    <td class="celula-input" id="e_retranca"></td>
+                    <td class="celula-input" id="t_retranca"></td>
+                    <td class="celula-input" id="r2_retranca"></td>
+                    <td class="celula-input" id="a1_retranca"></td>
+                    <td class="celula-input" id="n_retranca"></td>
+                    <td class="celula-input" id="c_retranca"></td>
+                    <td class="celula-input" id="a2_retranca"></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id=""></td>
+                </tr> <!-- fim da linha 8 -->
+                
+            </table>
+
+        </div>
+    </div> <!-- fim box-azul-claro -->
+</body>
+</html>
+<script src="script.js"></script>
