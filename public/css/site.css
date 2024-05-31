@@ -68,7 +68,7 @@ header img {
     border-radius: 65px;
 }
 
-header>.interface {
+.interface {
     display: flex;
     align-items: center;
     justify-content: space-between;

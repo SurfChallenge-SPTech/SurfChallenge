@@ -9,9 +9,10 @@ function cadastrar (nome, dtNascimento, email, senha, classeAtual){
     return database.executar(instrucaoSQL);
 }
 
-function autenticar() {
+function autenticar(email, senha) {
     var instrucaoSQL = `
-    SELECT email, senha FROM usuario;`;
+    SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';`
+    
     console.log("Executando a instrução SQL: \n" + instrucaoSQL);
     return database.executar(instrucaoSQL);
 }

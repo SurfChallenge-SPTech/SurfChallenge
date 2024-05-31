@@ -40,29 +40,14 @@
 </html>
 
 <script>
-    
-    // // gif do aguardando
-    // function aguardar() {
-    //     var divAguardar = document.getElementById("div_aguardar");
-    //     divAguardar.style.display = "flex";
-    // }
-
-    // // gif aguardar desaparecer
-
-    // function finalizarAguardar() {
-    //     var divAguardar = document.getElementById("div_aguardar");
-    //     divAguardar.style.display = "none";
-    // }
 
     function autenticar() {
-        // aguardar();
-
+   
         var email = input_email.value;
         var senha = input_senha.value;
 
         if (email == undefined || senha == undefined) {
             alert("Preencha todos os campos!")
-            // finalizarAguardar();
             return false;
         }
 
@@ -90,14 +75,13 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                 });
-
+                window.location = 'plataforma.html'
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
                 });
             }
 

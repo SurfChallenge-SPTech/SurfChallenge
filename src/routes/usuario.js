@@ -10,7 +10,7 @@ router.post("/cadastrar",function (req, res){
     usuarioController.cadastrar(req,res)
 }) 
 
-router.get("/autenticar", function (req, res) {
+router.post("/autenticar", function (req, res) {
     // função a ser chamada quando acessar /carros/autenticar
     usuarioController.autenticar(req, res);
 });

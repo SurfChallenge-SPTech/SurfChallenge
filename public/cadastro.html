@@ -25,16 +25,16 @@
 
         <div class="textfield">
             <label for="nome"> Nome </label>
-            <input value="Vic" id="input_nomeUsuario" type="text" class="nome" placeholder="Nome Completo">
+            <input id="input_nomeUsuario" type="text" class="nome" placeholder="Nome Completo">
         </div>
 
         <div class="textfield">
             <label for="dtNasc"> Data de Nascimento </label>
-            <input value="01/08/2008" id="input_dtNasc" type="date" class="dtNasc">
+            <input id="input_dtNasc" type="date" class="dtNasc">
         </div>
 
         <div class="textfield">
-            <label for="dtWindsurf"> Qual classe você patica atualmente? </label>
+            <label for="dtWindsurf"> Qual classe você pratica atualmente? </label>
             <select id="select_classeAtual" type="text" class="dtWindsurf" placeholder="Nome da classe">
                 <option value="opcaoInicial" disabled selected> Escolha uma opção </option>
                 <option value="1"> Fórmula </option>
@@ -44,21 +44,27 @@
                 <option value="6"> Mistral </option>
                 <option value="6"> Raceboard </option>
             </select>
+            <br>
+
+            <div id="perguntaAtual"></div>
         </div>
 
         <div class="textfield">
             <label for="usuario"> Coloque o seu email </label>
-            <input value="vic@gmail.com" id="input_emailUsuario" type="text" class="usuario" placeholder="Email">
+            <input id="input_emailUsuario" type="text" class="usuario" placeholder="Email">
+            <small class="alert" id="alert_email"></small>
         </div>
 
         <div class="textfield">
             <label for="senha"> Crie uma senha </label>
-            <input value="12345678" id="input_senha" type="password" class="senha" placeholder="Senha">
+            <input id="input_senha" type="password" class="senha" placeholder="Senha">
+            <small class="alert" id="alert_senha"></small>
         </div>
 
         <div class="textfield">
             <label for="senha"> Confirme sua senha </label>
-            <input value="12345678" id="input_confirmSenha" type="password" class="conf-senha" placeholder="Senha">
+            <input id="input_confirmSenha" type="password" class="conf-senha" placeholder="Senha">
+            <small class="alert" id="alert_confirm"></small>
         </div>
         <p> Já possui um cadastro? <a href="../public/login.html"> Clique aqui </span> </a>
 
@@ -74,41 +80,81 @@
 <script>
 
     function cadastrar() {
-        var nome = input_nomeUsuario.value
-        var dtNascimento = input_dtNasc.value
-        var email = input_emailUsuario.value
-        var senha = input_senha.value
-        var confirmacaoSenha = input_confirmSenha.value
-        var classeAtual = select_classeAtual.value
-        if (
-            nome == "" ||
-            dtNascimento == "" ||
-            email == "" ||
-            senha == "" ||
-            confirmacaoSenha == "" ||
-            classeAtual == ""
-        ) {
-            alert("Preencha todos os campos!");
+        const nome = input_nomeUsuario.value
+        const dtNascimento = input_dtNasc.value
+        const email = input_emailUsuario.value
+        const senha = input_senha.value
+        const confirmacaoSenha = input_confirmSenha.value
+        const classeAtual = select_classeAtual.value
+       
+        let temMaiscula = false;
+        let temMinuscula = false;
+        let temNum = false;
+        let temEspecial = false;
 
-            return false;
-        }
+        let caracteresEspeciais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', ',', '.', '<', '>', '?'];
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nome,
-                dtNascimentoServer: dtNascimento,
-                emailServer: email,
-                senhaServer: senha,
-                classeAtualServer: classeAtual
-            }),
-        }).then(msg => Swal.fire(msg.info))
+        for (let posicaoCaractere = 0; posicaoCaractere < senha.length; posicaoCaractere++) {
+                let caractere = senha[posicaoCaractere];
+
+                if (caractere >= 'A' && caractere <= 'Z') {
+                    temMaiscula = true;
+                }
+
+                if (caractere >= 'a' && caractere <= 'z') {
+                    temMinuscula = true;
+                }
+
+                if (caractere >= '0' && caractere <= '9') {
+                    temNum = true;
+                }
+
+                if (caracteresEspeciais.indexOf(caractere) != -1) {
+                    temEspecial = true;
+                }
+
+                if (temEspecial && temNum && temMinuscula && temMaiscula) {
+                    alert('Usuário cadastrado com sucesso')
+                    break;
+                }
+            }
+
+            if (!temMaiscula) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra maiúscula';
+            }
+
+            if (!temMinuscula) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra minúscula';
+            }
+
+            if (!temNum) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos um número';
+            }
+
+            if (!temEspecial) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos 1 caractere especial';
+            }
+
+            if (temMaiscula && temMinuscula && temNum && temEspecial) {
+                alert_senha.innerHTML = '';
+                
+                // Enviando o valor da nova input
+                fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeServer: nome,
+                        dtNascimentoServer: dtNascimento,
+                        emailServer: email,
+                        senhaServer: senha,
+                        classeAtualServer: classeAtual
+                    }),
+                }).then(msg => Swal.fire(msg.info))
+            }
     }
 
 

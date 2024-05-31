@@ -9,5 +9,8 @@ router.get("/cadastro", function (req, res) {
     res.render("cadastro");
 });
 
+router.get("/joguinho", function (req, res) {
+    res.render("joguinho");
+});
 
 module.exports = router;

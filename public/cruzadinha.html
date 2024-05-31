@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,13 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
+
 </head>
+
 <body>
 
     <div class="titulo">
@@ -19,9 +24,19 @@
     </div>
     <div class="box-azul-claro">
         <div class="tentativa">
-            <h3> Pergunta </h3>
+            <h3> Perguntas sobre equipamentos do WindSurf </h3>
+            <select id="select_perguntas" onchange="listarPerguntas()">
+                <option value="" disabled selected hidden>Selecione uma pergunta</option>
+                <option value="1">Pergunta 1</option>
+                <option value="2">Pergunta 2</option>
+                <option value="3">Pergunta 3</option>
+                <option value="4">Pergunta 4</option>
+                <option value="5">Pergunta 5</option>
+            </select>
+            <br>
+            <div id="div_perguntaAtual"></div>
             <input placeholder="Coloque uma palavra" id="input_palavra">
-            <button onclick="verificar()"> Verificar </button>
+            <button onclick="listarPerguntas()"> Verificar </button>
         </div>
         <div class="tabela">
             <table>
@@ -52,9 +67,9 @@
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
-                    <td class="celula-input" id="q_quilha"></td>
+                    <td class="celula-input" id="q_quilha"><input id="teste"> </input> </td>
                 </tr> <!-- fim da linha 1 -->
-                
+
                 <!-- linha 2 -->
                 <tr>
                     <td class="celula-vazia" id=""></td>
@@ -84,7 +99,7 @@
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-input" id="i_quilha"></td>
                 </tr> <!-- fim da linha 3 -->
-                
+
                 <!-- linha 4 -->
                 <tr>
                     <td class="celula-vazia" id=""></td>
@@ -114,7 +129,7 @@
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-input" id="h_quilha"></td>
                 </tr> <!-- fim da linha 5 -->
-                
+
                 <!-- linha 6 -->
                 <tr>
                     <td class="celula-vazia" id=""></td>
@@ -144,10 +159,10 @@
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                 </tr> <!-- fim da linha  -->
-                
+
                 <!-- linha 8 -->
                 <tr>
-                    <td class="celula-vazia" id="">5.</td>
+
                     <td class="celula-input" id="r1_retranca"></td>
                     <td class="celula-input" id="e_retranca"></td>
                     <td class="celula-input" id="t_retranca"></td>
@@ -156,71 +171,100 @@
                     <td class="celula-input" id="n_retranca"></td>
                     <td class="celula-input" id="c_retranca"></td>
                     <td class="celula-input" id="a2_retranca"></td>
-                    <td class="celula-vazia" id=""></td>
-                    <td class="celula-vazia" id=""></td>
-                    <td class="celula-vazia" id=""></td>
+                    <td class="celula-vazia" id="">5.</td>
+
                 </tr> <!-- fim da linha 8 -->
-                
+
             </table>
 
         </div>
     </div> <!-- fim box-azul-claro -->
 </body>
+
 </html>
 <script>
 
-function verificar() {
-    var palavra = (input_palavra.value.toUpperCase());
+    function verificar() {
+        var palavra = (input_palavra.value.toUpperCase());
 
-    if (palavra == "PRANCHA") {
-        p_prancha.innerHTML = `P`
-        r_prancha.innerHTML = `R`
-        a_mastro.innerHTML = `A`
-        n_prancha.innerHTML = `N`
-        c_prancha.innerHTML = `C`
-        h_prancha.innerHTML = `H`
-        a1_retranca.innerHTML = `A`
+        if (palavra == "PRANCHA") {
+            p_prancha.innerHTML = `P`
+            r_prancha.innerHTML = `R`
+            a_mastro.innerHTML = `A`
+            n_prancha.innerHTML = `N`
+            c_prancha.innerHTML = `C`
+            h_prancha.innerHTML = `H`
+            a1_retranca.innerHTML = `A`
 
-    } else if (palavra == "QUILHA") {
-        q_quilha.innerHTML = `Q`
-        u_quilha.innerHTML = `U`
-        i_quilha.innerHTML = `I`
-        l_quilha.innerHTML = `L`
-        h_quilha.innerHTML = `H`
-        a_quilha.innerHTML = `A`
+        } else if (palavra == "QUILHA") {
+            q_quilha.innerHTML = `Q`
+            u_quilha.innerHTML = `U`
+            i_quilha.innerHTML = `I`
+            l_quilha.innerHTML = `L`
+            h_quilha.innerHTML = `H`
+            a_quilha.innerHTML = `A`
 
-    } else if (palavra == "MASTRO") {
-        m_mastro.innerHTML = `M`
-        a_mastro.innerHTML = `A`
-        s_mastro.innerHTML = `S`
-        t_mastro.innerHTML = `T`
-        r_mastro.innerHTML = `R`
-        o_mastro.innerHTML = `O`
+        } else if (palavra == "MASTRO") {
+            m_mastro.innerHTML = `M`
+            a_mastro.innerHTML = `A`
+            s_mastro.innerHTML = `S`
+            t_mastro.innerHTML = `T`
+            r_mastro.innerHTML = `R`
+            o_mastro.innerHTML = `O`
 
-    }  else if (palavra == "CAMBADA") {
-        c_prancha.innerHTML = `C`
-        a1_cambada.innerHTML = `A`
-        m_cambada.innerHTML = `M`
-        b_cambada.innerHTML = `B`
-        a2_cambada.innerHTML = `A`
-        d_cambada.innerHTML = `D`
-        a_quilha.innerHTML = `A`
+        } else if (palavra == "CAMBADA") {
+            c_prancha.innerHTML = `C`
+            a1_cambada.innerHTML = `A`
+            m_cambada.innerHTML = `M`
+            b_cambada.innerHTML = `B`
+            a2_cambada.innerHTML = `A`
+            d_cambada.innerHTML = `D`
+            a_quilha.innerHTML = `A`
 
-    } else if (palavra == "RETRANCA") {
-        r1_retranca.innerHTML = `R`
-        e_retranca.innerHTML = `E`
-        t_retranca.innerHTML = `T`
-        r2_retranca.innerHTML = `R`
-        a1_retranca.innerHTML = `A`
-        n_retranca.innerHTML = `N`
-        c_retranca.innerHTML = `C`
-        a2_retranca.innerHTML = `A`
+        } else if (palavra == "RETRANCA") {
+            r1_retranca.innerHTML = `R`
+            e_retranca.innerHTML = `E`
+            t_retranca.innerHTML = `T`
+            r2_retranca.innerHTML = `R`
+            a1_retranca.innerHTML = `A`
+            n_retranca.innerHTML = `N`
+            c_retranca.innerHTML = `C`
+            a2_retranca.innerHTML = `A`
 
-    } else if (palavra == ""){
-        alert("Coloque uma palavra!")
-    } else {
-        alert("Verifique se a palavra que você colocou está escrito da forma correta!")
+        } else if (palavra == "") {
+            alert("Coloque uma palavra!")
+        } else {
+            alert("Verifique se a palavra que você colocou está escrito da forma correta!")
+        }
     }
-}
+
+    function listarPerguntas() {
+        let selectPergunta = select_perguntas.value
+
+        fetch("/cruzadinha/cruzadinha", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(function (res) {
+            return res.json()
+        }).then(function (data) {
+
+            if (selectPergunta == 1) {
+                div_perguntaAtual.innerHTML += `${data[1].pergunta}`
+            } else if (selectPergunta == 2) {
+                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
+            } else if (selectPergunta == 2) {
+                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
+            } else if (selectPergunta == 2) {
+                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
+            } else if (selectPergunta == 2) {
+                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
+            }
+
+        })
+    }
+
+
 
 </script>
