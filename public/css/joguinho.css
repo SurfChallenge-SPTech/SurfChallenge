@@ -25,6 +25,10 @@ h2 {
     font-weight: 500;
 }
 
+table tr td input {
+    width: 10px;
+}
+
 .titulo {
     background-color: #B9DAFA;
     width: 90%;

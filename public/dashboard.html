@@ -1,51 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Dashboard | SurfChallenge </title>
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <!-- FIM GOOGLE FONTES -->
-    <link rel="stylesheet" href="./css/dashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Dashboard | SurfChallenge </title>
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <!-- FIM GOOGLE FONTES -->
+  <link rel="stylesheet" href="./css/dashboard.css">
 
 </head>
-<body>
-    
-    <div class="perfil">
-        <img src="./img/perfil.png">
-        <h2> Nome </h2>
-        <h4> Email </h4>
-        <a href="./joguinho.html"> Palavras-Cruzadas </a>
-        <a href="./dashboard.html"> Dashboard </a>
-    </div>
-    
-    <div class="box"> 
-        <canvas id="myChart"></canvas>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<body>
+
+  <div class="perfil">
+    <img src="./img/perfil.png">
+    <h2> Nome </h2>
+    <h4> Email </h4>
+    <a href="./cruzadinha.html"> Palavras-Cruzadas </a>
+    <a href="./dashboard.html"> Dashboard </a>
+  </div>
+
+  <div class="box">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
 
 <script>
-  const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Fórmula', 'Wave', 'Freestyle', 'Slalom', 'Mistral', 'Raceboard'],
-      datasets: [{
-        label: 'Usuarios por categoria',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
+  fetch("/dashboard/dashboard", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
     },
-    options: {
-        indexAxis: 'y',
-    }
-  });
+  }).then(function (res) {
+    return res.json()
+  }).then(function (data) {
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [data[0].nome, data[1].nome, data[2].nome, data[3].nome, data[4].nome, data[5].nome],
+        datasets: [{
+          label: 'Usuarios por categoria',
+          data: [data[0].qtdUsuariosClasse, data[1].qtdUsuariosClasse, data[2].qtdUsuariosClasse, data[3].qtdUsuariosClasse, data[4].qtdUsuariosClasse, data[5].qtdUsuariosClasse],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        indexAxis: 'x',
+      }
+    });
+  })
 
 </script>

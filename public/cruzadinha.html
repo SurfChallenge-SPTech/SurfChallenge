@@ -24,7 +24,6 @@
     </div>
     <div class="box-azul-claro">
         <div class="tentativa">
-            <h3> Perguntas sobre equipamentos do WindSurf </h3>
             <select id="select_perguntas" onchange="listarPerguntas()">
                 <option value="" disabled selected hidden>Selecione uma pergunta</option>
                 <option value="1">Pergunta 1</option>
@@ -36,7 +35,7 @@
             <br>
             <div id="div_perguntaAtual"></div>
             <input placeholder="Coloque uma palavra" id="input_palavra">
-            <button onclick="listarPerguntas()"> Verificar </button>
+            <button onclick="verificar()"> Verificar </button>
         </div>
         <div class="tabela">
             <table>
@@ -52,7 +51,7 @@
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
-                    <td class="celula-vazia" id="">1.</td>
+                    <td class="celula-vazia" id="">2.</td>
                 </tr> <!-- fim da linha 0 -->
 
                 <!-- linha 1 -->
@@ -61,13 +60,13 @@
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
-                    <td class="celula-vazia" id="">2.</td>
+                    <td class="celula-vazia" id="">1.</td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
                     <td class="celula-vazia" id=""></td>
-                    <td class="celula-input" id="q_quilha"><input id="teste"> </input> </td>
+                    <td class="celula-input" id="q_quilha"></td>
                 </tr> <!-- fim da linha 1 -->
 
                 <!-- linha 2 -->
@@ -184,10 +183,36 @@
 </html>
 <script>
 
-    function verificar() {
-        var palavra = (input_palavra.value.toUpperCase());
+    let listaPalavrasResposta = [];
 
-        if (palavra == "PRANCHA") {
+    fetch("/cruzadinha/cruzadinha", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (res) {
+        return res.json()
+    }).then(function (data) {
+        for (let posicaoResposta = 0; posicaoResposta < data.length; posicaoResposta++) {
+            listaPalavrasResposta.push(data[posicaoResposta].resposta)
+        }
+    })
+
+    let pontuacaoCruzadinha = 0;
+    let listaPalavrasCorretas = [];
+
+    function verificar() {
+        let palavra = (input_palavra.value.toLowerCase());
+
+        if (listaPalavrasCorretas.includes(palavra)) {
+            alert("Você já acertou essa palavra!");
+            return;
+        }
+
+        if (palavra == listaPalavrasResposta[0]) {
+            pontuacaoCruzadinha++
+            listaPalavrasCorretas.push(palavra);
+
             p_prancha.innerHTML = `P`
             r_prancha.innerHTML = `R`
             a_mastro.innerHTML = `A`
@@ -195,8 +220,10 @@
             c_prancha.innerHTML = `C`
             h_prancha.innerHTML = `H`
             a1_retranca.innerHTML = `A`
+        } else if (palavra == listaPalavrasResposta[1]) {
+            pontuacaoCruzadinha++
+            listaPalavrasCorretas.push(palavra);
 
-        } else if (palavra == "QUILHA") {
             q_quilha.innerHTML = `Q`
             u_quilha.innerHTML = `U`
             i_quilha.innerHTML = `I`
@@ -204,7 +231,10 @@
             h_quilha.innerHTML = `H`
             a_quilha.innerHTML = `A`
 
-        } else if (palavra == "MASTRO") {
+        } else if (palavra == listaPalavrasResposta[2]) {
+            pontuacaoCruzadinha++
+            listaPalavrasCorretas.push(palavra);
+
             m_mastro.innerHTML = `M`
             a_mastro.innerHTML = `A`
             s_mastro.innerHTML = `S`
@@ -212,7 +242,10 @@
             r_mastro.innerHTML = `R`
             o_mastro.innerHTML = `O`
 
-        } else if (palavra == "CAMBADA") {
+        } else if (palavra == listaPalavrasResposta[3]) {
+            pontuacaoCruzadinha++
+            listaPalavrasCorretas.push(palavra);
+
             c_prancha.innerHTML = `C`
             a1_cambada.innerHTML = `A`
             m_cambada.innerHTML = `M`
@@ -221,7 +254,10 @@
             d_cambada.innerHTML = `D`
             a_quilha.innerHTML = `A`
 
-        } else if (palavra == "RETRANCA") {
+        } else if (palavra == listaPalavrasResposta[4]) {
+            pontuacaoCruzadinha++
+            listaPalavrasCorretas.push(palavra);
+
             r1_retranca.innerHTML = `R`
             e_retranca.innerHTML = `E`
             t_retranca.innerHTML = `T`
@@ -236,6 +272,27 @@
         } else {
             alert("Verifique se a palavra que você colocou está escrito da forma correta!")
         }
+        if (pontuacaoCruzadinha == 1) {
+            registrarPontuacao()
+        }
+    }
+
+    function registrarPontuacao() {
+        // Enviando o valor da pontuação
+        fetch("/cruzadinha/pontuacao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pontuacaoCruzadinhaServer: pontuacaoCruzadinha
+            }),
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
     }
 
     function listarPerguntas() {
@@ -251,15 +308,15 @@
         }).then(function (data) {
 
             if (selectPergunta == 1) {
-                div_perguntaAtual.innerHTML += `${data[1].pergunta}`
+                div_perguntaAtual.innerHTML = `1. ${data[0].pergunta}`
             } else if (selectPergunta == 2) {
-                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
-            } else if (selectPergunta == 2) {
-                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
-            } else if (selectPergunta == 2) {
-                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
-            } else if (selectPergunta == 2) {
-                div_perguntaAtual.innerHTML += `${data[2].pergunta}`
+                div_perguntaAtual.innerHTML = `2. ${data[1].pergunta}`
+            } else if (selectPergunta == 3) {
+                div_perguntaAtual.innerHTML = `3. ${data[2].pergunta}`
+            } else if (selectPergunta == 4) {
+                div_perguntaAtual.innerHTML = `4. ${data[3].pergunta}`
+            } else if (selectPergunta == 5) {
+                div_perguntaAtual.innerHTML = `5. ${data[4].pergunta}`
             }
 
         })
