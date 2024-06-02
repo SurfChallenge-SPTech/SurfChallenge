@@ -31,27 +31,27 @@
 
       <div class="classeWind">
         <h3> Fórmula </h3>
-        <h1> 40% </h1>
+        <h1 id="porcentagemFórmula"> 40% </h1>
       </div>
       <div class="classeWind">
         <h3> Wave </h3>
-        <h1> 40% </h1>
+        <h1 id="porcentagemWave"> 40% </h1>
       </div>
       <div class="classeWind">
         <h3> Freestyle </h3>
-        <h1> 40% </h1>
+        <h1 id="porcentagemFreestyle"> 40% </h1>
       </div>
       <div class="classeWind">
         <h3> Slalom </h3>
-        <h1> 40% </h1>
+        <h1 id="porcentagemSlalom"> 40% </h1>
       </div>
       <div class="classeWind">
         <h3> Mistral </h3>
-        <h1> 40% </h1>
+        <h1 id="porcentagemMistral"> 40% </h1>
       </div>
       <div class="classeWind">
         <h3> Raceboard </h3>
-        <h1> 40% </h1>
+        <h1 id="porcentagemRaceboard"> 40% </h1>
       </div>
     </div>
     <canvas id="myChart"></canvas>
@@ -63,6 +63,23 @@
 </html>
 
 <script>
+
+fetch("/dashboard/dashboard", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (res) {
+    return res.json()
+  }).then(function (data) {
+    let totalUsuarios = data[0].totalUsuarios
+    porcentagemFórmula.innerHTML = `${((data[0].qtdUsuariosClasse * 100) / totalUsuarios).toFixed(2)}%`
+    porcentagemWave.innerHTML = `${((data[1].qtdUsuariosClasse * 100) / totalUsuarios).toFixed(2)}%`
+    porcentagemFreestyle.innerHTML = `${((data[2].qtdUsuariosClasse * 100) / totalUsuarios).toFixed(2)}%`
+    porcentagemSlalom.innerHTML = `${((data[3].qtdUsuariosClasse * 100) / totalUsuarios).toFixed(2)}%`
+    porcentagemMistral.innerHTML = `${((data[4].qtdUsuariosClasse * 100) / totalUsuarios).toFixed(2)}%`
+    porcentagemRaceboard.innerHTML = `${((data[5].qtdUsuariosClasse * 100) / totalUsuarios).toFixed(2)}%`
+  })
 
   fetch("/dashboard/dashboard", {
     method: "GET",

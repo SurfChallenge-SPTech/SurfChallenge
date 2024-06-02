@@ -28,11 +28,13 @@
         <div class="textfield">
             <label for="nome"> Nome </label>
             <input id="input_nomeUsuario" type="text" class="nome" placeholder="Nome Completo">
+            <small class="alert" id="alert_nome"></small>
         </div>
 
         <div class="textfield">
             <label for="dtNasc"> Data de Nascimento </label>
             <input id="input_dtNasc" type="date" class="dtNasc">
+            <small class="alert" id="alert_dtNascimento"></small>
         </div>
 
         <div class="textfield">
@@ -46,9 +48,7 @@
                 <option value="6"> Mistral </option>
                 <option value="6"> Raceboard </option>
             </select>
-            <br>
-
-            <div id="perguntaAtual"></div>
+            <small class="alert" id="alert_classeAtual"></small>
         </div>
 
         <div class="textfield">
@@ -82,6 +82,7 @@
 <script>
 
     function cadastrar() {
+
         const nome = input_nomeUsuario.value
         const dtNascimento = input_dtNasc.value
         const email = input_emailUsuario.value
@@ -96,63 +97,84 @@
 
         let caracteresEspeciais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', ',', '.', '<', '>', '?'];
 
-        for (let posicaoCaractere = 0; posicaoCaractere < senha.length; posicaoCaractere++) {
-            let caractere = senha[posicaoCaractere];
+        if (nome == "") {
+            alert_nome.innerHTML = `Preencha este campo com o seu nome!`
+        } else if (dtNascimento == "") {
+            alert_dtNascimento.innerHTML = `Coloque a sua data de nascimento!`
+        } else if (classeAtual == "opcaoInicial") {
+            alert_classeAtual.innerHTML = `Coloque a classe que você está atualmente no windsurf!`
+        } else if (email == "") {
+            alert_email.innerHTML = `Preencha este campo com o seu email!`
+        } else if (senha.length < 8) {
+            alert_senha.innerHTML = `A senha deve conter pelo menos 8 caracteres!`
+        } else {
+            for (let posicaoCaractere = 0; posicaoCaractere < senha.length; posicaoCaractere++) {
+                let caractere = senha[posicaoCaractere];
 
-            if (caractere >= 'A' && caractere <= 'Z') {
-                temMaiscula = true;
+                if (caractere >= 'A' && caractere <= 'Z') {
+                    temMaiscula = true;
+                }
+
+                if (caractere >= 'a' && caractere <= 'z') {
+                    temMinuscula = true;
+                }
+
+                if (caractere >= '0' && caractere <= '9') {
+                    temNum = true;
+                }
+
+                if (caracteresEspeciais.indexOf(caractere) != -1) {
+                    temEspecial = true;
+                }
             }
 
-            if (caractere >= 'a' && caractere <= 'z') {
-                temMinuscula = true;
+            if (!temMaiscula) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra maiúscula';
             }
 
-            if (caractere >= '0' && caractere <= '9') {
-                temNum = true;
+            if (!temMinuscula) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra minúscula';
             }
 
-            if (caracteresEspeciais.indexOf(caractere) != -1) {
-                temEspecial = true;
+            if (!temNum) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos um número';
             }
-        }
 
-        if (!temMaiscula) {
-            alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra maiúscula';
-        }
+            if (!temEspecial) {
+                alert_senha.innerHTML = 'A senha deve conter pelo menos 1 caractere especial';
+            }
 
-        if (!temMinuscula) {
-            alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra minúscula';
-        }
+            if (senha != confirmacaoSenha) {
+                alert_confirm.innerHTML = `A senha deve ser a mesma que você preencheu no campo anterior!`
+            }
 
-        if (!temNum) {
-            alert_senha.innerHTML = 'A senha deve conter pelo menos um número';
-        }
+            if (temMaiscula && temMinuscula && temNum && temEspecial && senha == confirmacaoSenha) {
+                alert_senha.innerHTML = '';
+                // Enviando o valor da nova input
+                fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        // crie um atributo que recebe o valor recuperado aqui
+                        // Agora vá para o arquivo routes/usuario.js
+                        nomeServer: nome,
+                        dtNascimentoServer: dtNascimento,
+                        emailServer: email,
+                        senhaServer: senha,
+                        classeAtualServer: classeAtual
+                    }),
+                }).then(msg => Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Você foi cadastrado com sucesso!",
+                    showConfirmButton: false,
+                    timer: 1500
+                })(msg.info));
 
-        if (!temEspecial) {
-            alert_senha.innerHTML = 'A senha deve conter pelo menos 1 caractere especial';
-        }
-
-        if (temMaiscula && temMinuscula && temNum && temEspecial) {
-            alert_senha.innerHTML = '';
-
-            // Enviando o valor da nova input
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nome,
-                    dtNascimentoServer: dtNascimento,
-                    emailServer: email,
-                    senhaServer: senha,
-                    classeAtualServer: classeAtual
-                }),
-            }).then(msg => Swal.fire(msg.info))
-
-            window.location.href = "login.html"
+                // window.location.href = "login.html"
+            }
         }
     }
 
