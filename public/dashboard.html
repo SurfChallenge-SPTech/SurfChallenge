@@ -21,12 +21,39 @@
   <div class="perfil">
     <img src="./img/perfil.png">
     <h2> Nome </h2>
-    <h4> Email </h4>
-    <a href="./cruzadinha.html"> Palavras-Cruzadas </a>
+    <p> Email </p>
+    <a href="./plataforma.html"> Palavras-Cruzadas </a>
     <a href="./dashboard.html"> Dashboard </a>
   </div>
 
   <div class="box">
+    <div class="boxClassesWind">
+
+      <div class="classeWind">
+        <h3> Fórmula </h3>
+        <h1> 40% </h1>
+      </div>
+      <div class="classeWind">
+        <h3> Wave </h3>
+        <h1> 40% </h1>
+      </div>
+      <div class="classeWind">
+        <h3> Freestyle </h3>
+        <h1> 40% </h1>
+      </div>
+      <div class="classeWind">
+        <h3> Slalom </h3>
+        <h1> 40% </h1>
+      </div>
+      <div class="classeWind">
+        <h3> Mistral </h3>
+        <h1> 40% </h1>
+      </div>
+      <div class="classeWind">
+        <h3> Raceboard </h3>
+        <h1> 40% </h1>
+      </div>
+    </div>
     <canvas id="myChart"></canvas>
   </div>
 
@@ -55,11 +82,36 @@
         datasets: [{
           label: 'Usuarios por categoria',
           data: [data[0].qtdUsuariosClasse, data[1].qtdUsuariosClasse, data[2].qtdUsuariosClasse, data[3].qtdUsuariosClasse, data[4].qtdUsuariosClasse, data[5].qtdUsuariosClasse],
-          borderWidth: 1
+          borderWidth: 1,
+          backgroundColor: '#6CE5E8',
+          color: '#fff',
+          borderRadius: '36px',
+
         }]
       },
       options: {
-        indexAxis: 'x',
+        scales: {
+          x: {
+            ticks: {
+              font: {
+                size: 14,
+                weight: '400',
+                family: 'Roboto',
+              },
+              color: '#fff',
+            }
+          },
+          y: {
+            ticks: {
+              font: {
+                size: 14,
+                weight: '400',
+                family: 'Roboto',
+              },
+              color: '#fff',
+            },
+          }
+        }
       }
     });
   })

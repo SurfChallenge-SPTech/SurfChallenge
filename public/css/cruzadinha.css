@@ -1,0 +1,154 @@
+* {
+    font-family: 'Roboto';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121B79;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+h1 {
+    color: #121B79;
+    font-size: 45px;
+}
+
+h2 {
+    color: #121B79;
+    font-weight: 500;
+}
+
+table tr td input {
+    width: 10px;
+}
+
+.titulo {
+    background-color: transparent;
+    border: 2px solid #6CE5E8;
+    width: 90%;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 10px;
+}
+
+.titulo h1 {
+    color: #6CE5E8;
+    font-weight: 500;
+}
+
+.titulo h2 {
+    color: #6CE5E8;
+    font-weight: 400;
+}
+
+.box-azul-claro {
+    background-color: transparent;
+    border: 2px solid #6CE5E8;
+    margin-top: 15px;
+    border-radius: 20px;
+    height: 570px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.tentativa {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+}
+
+.celula-vazia {
+    background-color: transparent;
+    color: #fff;
+}
+
+.celula-input {
+    background-color: transparent;
+    border: 2px solid #6CE5E8;
+    color: #fff;
+}
+  
+td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+select {
+    background-color: transparent;
+    border: 2px solid #6CE5E8;
+    width: 400px;
+    border-radius: 36px;
+    height: 70px;
+    color: #6CE5E8;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+option {
+    background-color: transparent;
+    width: 400px;
+    border-radius: 36px;
+    color: #6CE5E8;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    background-color: #121B79;
+}
+
+.div-perguntaAtual {
+    width: 400px;
+    height: 250px;
+    color: #fff;
+    margin-top: 50px;
+}
+
+.resposta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resposta input {
+    width: 300px;
+    height: 70px;
+    background-color: #6CE5E8;
+    text-align: center;
+    font-size: 18px;
+    color: #121B79;
+    font-weight: 400;
+    border: 0;
+    border-radius: 36px;
+}
+
+::placeholder {
+    color: #121B79;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.resposta button {
+    background-color: transparent;
+    border: 0;
+}
+
+.resposta button img{
+    width: 70px;
+    height: 70px;
+}
+
+

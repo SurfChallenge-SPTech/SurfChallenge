@@ -8,7 +8,9 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -66,9 +68,9 @@
             <input id="input_confirmSenha" type="password" class="conf-senha" placeholder="Senha">
             <small class="alert" id="alert_confirm"></small>
         </div>
-        <p> Já possui um cadastro? <a href="../public/login.html"> Clique aqui </span> </a>
+        <button onclick="cadastrar()" class="button-cadastro"> Cadastrar </button>
+        <p> Já possui um cadastro? <a href="./login.html"> Clique aqui </span> </a>
 
-            <button onclick="cadastrar()" class="button-cadastro"> Cadastrar </button>
 
 
     </div>
@@ -86,7 +88,7 @@
         const senha = input_senha.value
         const confirmacaoSenha = input_confirmSenha.value
         const classeAtual = select_classeAtual.value
-       
+
         let temMaiscula = false;
         let temMinuscula = false;
         let temNum = false;
@@ -95,61 +97,63 @@
         let caracteresEspeciais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', ',', '.', '<', '>', '?'];
 
         for (let posicaoCaractere = 0; posicaoCaractere < senha.length; posicaoCaractere++) {
-                let caractere = senha[posicaoCaractere];
+            let caractere = senha[posicaoCaractere];
 
-                if (caractere >= 'A' && caractere <= 'Z') {
-                    temMaiscula = true;
-                }
-
-                if (caractere >= 'a' && caractere <= 'z') {
-                    temMinuscula = true;
-                }
-
-                if (caractere >= '0' && caractere <= '9') {
-                    temNum = true;
-                }
-
-                if (caracteresEspeciais.indexOf(caractere) != -1) {
-                    temEspecial = true;
-                }
+            if (caractere >= 'A' && caractere <= 'Z') {
+                temMaiscula = true;
             }
 
-            if (!temMaiscula) {
-                alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra maiúscula';
+            if (caractere >= 'a' && caractere <= 'z') {
+                temMinuscula = true;
             }
 
-            if (!temMinuscula) {
-                alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra minúscula';
+            if (caractere >= '0' && caractere <= '9') {
+                temNum = true;
             }
 
-            if (!temNum) {
-                alert_senha.innerHTML = 'A senha deve conter pelo menos um número';
+            if (caracteresEspeciais.indexOf(caractere) != -1) {
+                temEspecial = true;
             }
+        }
 
-            if (!temEspecial) {
-                alert_senha.innerHTML = 'A senha deve conter pelo menos 1 caractere especial';
-            }
+        if (!temMaiscula) {
+            alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra maiúscula';
+        }
 
-            if (temMaiscula && temMinuscula && temNum && temEspecial) {
-                alert_senha.innerHTML = '';
-                
-                // Enviando o valor da nova input
-                fetch("/usuarios/cadastrar", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        // crie um atributo que recebe o valor recuperado aqui
-                        // Agora vá para o arquivo routes/usuario.js
-                        nomeServer: nome,
-                        dtNascimentoServer: dtNascimento,
-                        emailServer: email,
-                        senhaServer: senha,
-                        classeAtualServer: classeAtual
-                    }),
-                }).then(msg => Swal.fire(msg.info))
-            }
+        if (!temMinuscula) {
+            alert_senha.innerHTML = 'A senha deve conter pelo menos uma letra minúscula';
+        }
+
+        if (!temNum) {
+            alert_senha.innerHTML = 'A senha deve conter pelo menos um número';
+        }
+
+        if (!temEspecial) {
+            alert_senha.innerHTML = 'A senha deve conter pelo menos 1 caractere especial';
+        }
+
+        if (temMaiscula && temMinuscula && temNum && temEspecial) {
+            alert_senha.innerHTML = '';
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nome,
+                    dtNascimentoServer: dtNascimento,
+                    emailServer: email,
+                    senhaServer: senha,
+                    classeAtualServer: classeAtual
+                }),
+            }).then(msg => Swal.fire(msg.info))
+
+            window.location.href = "login.html"
+        }
     }
 
 

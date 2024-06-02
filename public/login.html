@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,42 +8,46 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
 
     <link rel="stylesheet" href="./css/login.css">
 
     <title>Login | SurfChallenge </title>
 </head>
+
 <body>
-        <div class="box-login">
+    <div class="box-login">
 
-                <h1> LOGIN </h1>
-              
-                <div class="textfield">
-                    <label for="usuario"> Coloque o seu email cadastrado </label>
-                    <input id="input_email" type="text" class="usuario" placeholder="Email">
-                </div>
+        <h1> LOGIN </h1>
 
-                <div class="textfield">
-                    <label for="senha"> Coloque sua senha </label>
-                    <input id="input_senha" type="password" class="senha" placeholder="Senha">
-                </div>
+        <div class="textfield">
+            <label for="usuario"> Coloque o seu email cadastrado </label>
+            <input id="input_email" type="text" class="usuario" placeholder="Email">
+        </div>
 
-                <button onclick="autenticar()" class="button-login"> Entrar </button>
+        <div class="textfield">
+            <label for="senha"> Coloque sua senha </label>
+            <input id="input_senha" type="password" class="senha" placeholder="Senha">
+        </div>
 
-                <!-- <div id="div_aguardar" class="loading-div">
+        <button onclick="autenticar()" class="button-login"> Entrar </button>
+
+        <!-- <div id="div_aguardar" class="loading-div">
                     <img src="../public/img/aguardando.gif" id="loading-gif">
                 </div> -->
-        
-        </div>
+
+    </div>
 </body>
+
 </html>
 
 <script>
 
     function autenticar() {
-   
+
         var email = input_email.value;
         var senha = input_senha.value;
 

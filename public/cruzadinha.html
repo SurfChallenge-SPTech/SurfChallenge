@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cruzadinha de Windsurf</title>
-    <link rel="stylesheet" href="./css/joguinho.css">
+    <title> <img src="./img/logo.png" alt=""> Cruzadinha de Windsurf</title>
+    <link rel="stylesheet" href="./css/cruzadinha.css">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,10 +32,12 @@
                 <option value="4">Pergunta 4</option>
                 <option value="5">Pergunta 5</option>
             </select>
-            <br>
-            <div id="div_perguntaAtual"></div>
-            <input placeholder="Coloque uma palavra" id="input_palavra">
-            <button onclick="verificar()"> Verificar </button>
+
+            <div class="div-perguntaAtual" id="div_perguntaAtual"></div>
+            <div class="resposta">
+                <input placeholder="Resposta" id="input_palavra">
+                <button onclick="verificar()"> <img src="./img/enviar.png"></button>
+            </div>
         </div>
         <div class="tabela">
             <table>
