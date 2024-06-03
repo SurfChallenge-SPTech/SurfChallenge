@@ -196,7 +196,7 @@
         return res.json()
     }).then(function (data) {
         for (let posicaoResposta = 0; posicaoResposta < data.length; posicaoResposta++) {
-            listaPalavrasResposta.push(data[posicaoResposta].resposta)
+            listaPalavrasResposta.push(data[posicaoResposta].resposta);
         }
     })
 
@@ -276,6 +276,7 @@
     }
 
     function registrarPontuacao() {
+        var idUsuario = sessionStorage.ID_USUARIO
         // Enviando o valor da pontuação
         fetch("/pontuacao/pontuacao", {
             method: "POST",
@@ -283,6 +284,7 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
+                usuarioIdServer: idUsuario,
                 pontuacaoCruzadinhaServer: pontuacaoCruzadinha
             }),
         }).then(function (resposta) {

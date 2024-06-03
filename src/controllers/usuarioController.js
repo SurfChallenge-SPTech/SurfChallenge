@@ -21,6 +21,7 @@ function cadastrar(req, res) {
 function autenticar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var idUsuario = req.body.idUsuarioServer;
 
     if (email == undefined) {
         res.status(400).send("Coloque o seu email");
@@ -28,7 +29,7 @@ function autenticar(req, res) {
         res.status(400).send("Coloque a sua senha");
     } else {
 
-        usuarioModel.autenticar(email, senha)
+        usuarioModel.autenticar(email, senha, idUsuario)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -57,8 +58,34 @@ function autenticar(req, res) {
     }
 }
 
+function pegarIDUsuario(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.pegarIDUsuario(idUsuario)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     cadastrar,
-    autenticar
+    autenticar,
+    pegarIDUsuario
 }
 
