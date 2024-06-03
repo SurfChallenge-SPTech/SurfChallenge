@@ -29,18 +29,7 @@ function listarRespostas(req, res) {
     });
 }
 
-function registrarPontuacao(req, res) {
-    var pontuacao = req.body.pontuacaoCruzadinhaServer;
-
-    cruzadinhaModel.registrarPontuacao(pontuacao).then(function (resposta) {
-        res.status(200).send("Pontuação registrada com sucesso!");
-    }).catch(function (erro) {
-        res.status(500).json(erro.sqlMessage);
-    })
-}
-
 module.exports = {
     listarPerguntas,
-    listarRespostas,
-    registrarPontuacao
+    listarRespostas
 }

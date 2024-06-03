@@ -24,17 +24,7 @@ function listarRespostas() {
     return database.executar(instrucaoSql);
 }
 
-function registrarPontuacao (pontuacao){
-    var instrucaoSQL = `
-    INSERT INTO registroPalavraCruzada (pontuacao) VALUES
-    ('${pontuacao}');
-    `
-    console.log("Executando a instrução SQL: \n" + instrucaoSQL);
-    return database.executar(instrucaoSQL);
-}
-
 module.exports = {
     listarPerguntas,
-    listarRespostas,
-    registrarPontuacao
+    listarRespostas
 }

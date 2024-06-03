@@ -11,10 +11,11 @@ function cadastrar (nome, dtNascimento, email, senha, classeAtual){
 
 function autenticar(email, senha) {
     var instrucaoSQL = `
-    SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';`
+    SELECT idUsuario, nome, email, senha FROM usuario WHERE email = '${email}' AND senha = '${senha}';`
     
     console.log("Executando a instrução SQL: \n" + instrucaoSQL);
     return database.executar(instrucaoSQL);
+    
 }
 
 module.exports = {

@@ -212,7 +212,6 @@
         }
 
         if (palavra == listaPalavrasResposta[0]) {
-            pontuacaoCruzadinha++
             listaPalavrasCorretas.push(palavra);
 
             p_prancha.innerHTML = `P`
@@ -223,7 +222,6 @@
             h_prancha.innerHTML = `H`
             a1_retranca.innerHTML = `A`
         } else if (palavra == listaPalavrasResposta[1]) {
-            pontuacaoCruzadinha++
             listaPalavrasCorretas.push(palavra);
 
             q_quilha.innerHTML = `Q`
@@ -234,7 +232,6 @@
             a_quilha.innerHTML = `A`
 
         } else if (palavra == listaPalavrasResposta[2]) {
-            pontuacaoCruzadinha++
             listaPalavrasCorretas.push(palavra);
 
             m_mastro.innerHTML = `M`
@@ -245,7 +242,6 @@
             o_mastro.innerHTML = `O`
 
         } else if (palavra == listaPalavrasResposta[3]) {
-            pontuacaoCruzadinha++
             listaPalavrasCorretas.push(palavra);
 
             c_prancha.innerHTML = `C`
@@ -257,7 +253,6 @@
             a_quilha.innerHTML = `A`
 
         } else if (palavra == listaPalavrasResposta[4]) {
-            pontuacaoCruzadinha++
             listaPalavrasCorretas.push(palavra);
 
             r1_retranca.innerHTML = `R`
@@ -274,14 +269,15 @@
         } else {
             alert("Verifique se a palavra que você colocou está escrito da forma correta!")
         }
-        if (pontuacaoCruzadinha == 1) {
+        if (listaPalavrasCorretas.length == 5) {
+            pontuacaoCruzadinha = 5
             registrarPontuacao()
         }
     }
 
     function registrarPontuacao() {
         // Enviando o valor da pontuação
-        fetch("/cruzadinha/pontuacao", {
+        fetch("/pontuacao/pontuacao", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

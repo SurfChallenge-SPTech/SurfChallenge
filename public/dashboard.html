@@ -20,8 +20,8 @@
 
   <div class="perfil">
     <img src="./img/perfil.png">
-    <h2> Nome </h2>
-    <p> Email </p>
+    <h2 id="nomeUsuario"> Nome </h2>
+    <p id="emailUsuario"> Email </p>
     <a href="./plataforma.html"> Palavras-Cruzadas </a>
     <a href="./dashboard.html"> Dashboard </a>
   </div>
@@ -63,8 +63,10 @@
 </html>
 
 <script>
+  nomeUsuario.innerHTML = `${sessionStorage.getItem("NOME_USUARIO")}`
+  emailUsuario.innerHTML = `${sessionStorage.getItem("EMAIL_USUARIO")}`
 
-fetch("/dashboard/dashboard", {
+  fetch("/dashboard/dashboard", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

@@ -38,12 +38,7 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
                         if (resultadoAutenticar.length > 0) {
-                            res.json({
-                                id: resultadoAutenticar[0].id,
-                                email: resultadoAutenticar[0].email,
-                                nome: resultadoAutenticar[0].nome,
-                                senha: resultadoAutenticar[0].senha,
-                            });
+                            res.json(resultadoAutenticar);
 
                         }
                     } else if (resultadoAutenticar.length == 0) {
@@ -61,7 +56,6 @@ function autenticar(req, res) {
             );
     }
 }
-
 
 module.exports = {
     cadastrar,

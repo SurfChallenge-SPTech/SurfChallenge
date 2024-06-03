@@ -19,6 +19,7 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuario");
 var cruzadinhaRouter = require("./src/routes/cruzadinha");
 var dashboardRouter = require("./src/routes/dashboard");
+var pontuacaoRouter = require("./src/routes/pontuacao");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +31,8 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/cruzadinha", cruzadinhaRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/pontuacao", pontuacaoRouter);
+
 
 
 app.listen(PORTA_APP, function () {
