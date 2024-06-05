@@ -11,11 +11,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
-
     <link rel="stylesheet" href="./css/site.css">
-
-
     <title>SurfChallenge</title>
+    <link rel="icon" href="./img/logo.png">
 </head>
 
 <body>
@@ -28,7 +26,6 @@
                         <img src="./img/logo.png" alt="LogoSurfChallenge">
                     </a>
                 </div><!--logo-->
-
                 <nav class="nav-list">
                     <ul>
                         <li><a href="#scroll.1"> Início </a></li>
@@ -37,108 +34,48 @@
                         <li><a href="#scroll.4"> Challenge </a></li>
                     </ul>
                 </nav>
-
-
                 <div class="buttonEntrar">
                     <a href="#">
                         <button onclick="buttonEntrar()"> Entrar </button>
                     </a>
                 </div><!--buttonEntrar-->
-
-
             </div><!--interface-->
-
         </header>
-        <main>
-            <section class="topo-do-site">
-               
-                    <h1>SurfChallenge</h1>
-                    <h3>DOMINE AS ONDAS DO SEU CONHECIMENTO</h3>
-                    <p>Oferecemos uma experiência educativa e envolvente para aqueles que estão aprendendo a
-                        praticar Windsurf.</p>
 
-                    <div class="buttonQueroIniciar">
-                        <a href="#">
-                            <button onclick="iniciarChallenge()">Quero iniciar o Challenge</button>
-                        </a>
-                    </div>
+        <section class="topo-do-site">
+            <h1>SurfChallenge</h1>
+            <h3>DOMINE AS ONDAS DO SEU CONHECIMENTO</h3>
+            <p>Oferecemos uma experiência educativa e envolvente para aqueles que estão aprendendo a
+                praticar Windsurf.</p>
+            <div class="buttonQueroIniciar">
+                <a href="#">
+                    <button onclick="iniciarChallenge()">Quero iniciar o Challenge</button>
+                </a>
+            </div>
+        </section><!--topo-do-site-->
+    </div><!--backgroundHome-->
 
-            </section><!--topo-do-site-->
-    </div>
     <section id="scroll.2" class="sobre">
-  
-
-            <h2>SOBRE NÓS</h2>
-            <p>Na SurfChallenge, acreditamos que o conhecimento é a chave para o sucesso em qualquer atividade
-                esportiva, especialmente quando se trata de windsurf. Por esse motivo, queremos te desafiar a mergulhar na onda do coonhecimento praticando os nossos desafios interativos para aprimorar o seu conhecimento sobre o windsurf.</p>
-
+        <h2>SOBRE NÓS</h2>
+        <p>Na SurfChallenge, acreditamos que o conhecimento é a chave para o sucesso em qualquer atividade
+            esportiva, especialmente quando se trata de windsurf. Por esse motivo, queremos te desafiar a mergulhar na
+            onda do conhecimento praticando o nosso desafio interativo para aprimorar o seu conhecimento sobre o
+            windsurf.</p>
     </section><!--sobre-->
-
+    
     <section id="scroll.3" class="classes">
-
         <h2 class="titulo">CLASSES</h2>
-        <div class="grid-box">
-            <div class="classes-box">
-                <img src="./img/formula.jpg">
-                <h3>Fórmula</h3>
-                <p>Velejo de velocidade e longa distância. É uma classe para velejadores que se desejam iniciar no
-                    windsurf.</p>
-            </div><!--classes-box-->
-
-            <div class="classes-box">
-                <img src="./img/wave.jpg">
-                <h3>Wave</h3>
-                <p>Velejar com pranchas mais ágeis e projetadas para manobras em ondas grandes e desafiadoras.</p>
-            </div><!--classes-box-->
-
-            <div class="classes-box">
-                <img src="./img/freestyle.jpg">
-                <h3>Freestyle</h3>
-                <p>Velejo com manobras e truques acrobáticos com pranchas mais curtas.</p>
-            </div><!--classes-box-->
-
-            <div class="classes-box">
-                <img src="./img/slalom.jpg">
-                <h3>Slalom</h3>
-                <p>Velejo com obstáculos com pranchas projetadas para performar em velocidade e agilidade em torno das
-                    boias.</p>
-            </div><!--classes-box-->
-
-            <div class="classes-box">
-                <img src="./img/mistral.jpg">
-                <h3>Mistral</h3>
-                <p>Atual divisão olímpica, estáveis e fáceis de manobrar, tornando-as adequadas tanto para iniciantes
-                    quanto para velejadores mais avançados.</p>
-            </div><!--classes-box-->
-
-            <div class="classes-box">
-                <img src="./img/raceboard.jpg">
-                <h3>Raceboard</h3>
-                <p>Pranchas estreitas e longas projetadas especificamente para competições de corrida em águas planas.
-                </p>
-            </div><!--classes-box-->
-        </div>
-
-
+        <div id="div_exibirClasses" class="grid-box"></div>
     </section><!--classes-->
 
-
     <section id="scroll.4" class="challenge">
-
         <h2>Challenge</h2>
-
         <div class="img-fundo" style="background-image: url(./img/challenge.png);">
             <div onclick="iniciarChallenge()" class="escurecer-img"></div>
         </div>
-
     </section><!--challenge-->
 
-
-
-    </main>
-
     <footer>
-
         <div class="linha-footer .borda">
             <u>contato@surfchallenge.com.br</u>
         </div><!--linha-footer-->
@@ -149,6 +86,36 @@
 </html>
 
 <script>
+    const listaClasses = {
+        nome: ["Fórmula", "Wave", "Freestyle", "Mistral", "Slalom", "Raceboard"],
+        descricao: [
+            "Velejo de velocidade e longa distância. É uma classe para velejadores que se desejam iniciar no windsurf.",
+            "Velejar com pranchas mais ágeis e projetadas para manobras em ondas grandes e desafiadoras.",
+            "Velejo com manobras e truques acrobáticos com pranchas mais curtas.",
+            "Velejo com obstáculos com pranchas projetadas para performar em velocidade e agilidade em torno das boias.",
+            "Atual divisão olímpica, estáveis e fáceis de manobrar, tornando-as adequadas tanto para iniciantesquanto para velejadores mais avançados.",
+            "Pranchas estreitas e longas projetadas especificamente para competições de corrida em águas planas."
+        ],
+        img: [
+            "./img/formula.jpg",
+            "./img/wave.jpg",
+            "./img/freestyle.jpg",
+            "./img/mistral.jpg",
+            "./img/slalom.jpg",
+            "./img/raceboard.jpg",
+        ],
+    };
+    for (let posicaoClasse = 0; posicaoClasse < listaClasses.nome.length; posicaoClasse++) {
+        div_exibirClasses.innerHTML += `
+            <div class="classes-box">
+                <img src="${listaClasses.img[posicaoClasse]}">
+                <h3>${listaClasses.nome[posicaoClasse]}</h3>
+                <p>${listaClasses.descricao[posicaoClasse]}</p>
+            </div>
+            `
+    }
+
+
     function buttonEntrar() {
         window.location.href = 'login.html';
     }

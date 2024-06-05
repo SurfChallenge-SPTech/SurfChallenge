@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,30 +12,24 @@
         rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
     <link rel="stylesheet" href="./css/cadastro.css">
-
     <title>Cadastro | SurfChallenge </title>
+    <link rel="icon" href="./img/logo.png">
 </head>
 
 <body>
     <div class="box-cadastro">
-
         <h1> CADASTRE-SE </h1>
-
         <div class="textfield">
             <label for="nome"> Nome </label>
             <input id="input_nomeUsuario" type="text" class="nome" placeholder="Nome Completo">
             <small class="alert" id="alert_nome"></small>
         </div>
-
         <div class="textfield">
             <label for="dtNasc"> Data de Nascimento </label>
             <input id="input_dtNasc" type="date" class="dtNasc">
             <small class="alert" id="alert_dtNascimento"></small>
         </div>
-
         <div class="textfield">
             <label for="dtWindsurf"> Qual classe você pratica atualmente? </label>
             <select id="select_classeAtual" type="text" class="dtWindsurf" placeholder="Nome da classe">
@@ -50,19 +43,16 @@
             </select>
             <small class="alert" id="alert_classeAtual"></small>
         </div>
-
         <div class="textfield">
             <label for="usuario"> Coloque o seu email </label>
             <input id="input_emailUsuario" type="text" class="usuario" placeholder="Email">
             <small class="alert" id="alert_email"></small>
         </div>
-
         <div class="textfield">
             <label for="senha"> Crie uma senha </label>
             <input id="input_senha" type="password" class="senha" placeholder="Senha">
             <small class="alert" id="alert_senha"></small>
         </div>
-
         <div class="textfield">
             <label for="senha"> Confirme sua senha </label>
             <input id="input_confirmSenha" type="password" class="conf-senha" placeholder="Senha">
@@ -70,13 +60,8 @@
         </div>
         <button onclick="cadastrar()" class="button-cadastro"> Cadastrar </button>
         <p> Já possui um cadastro? <a href="./login.html"> Clique aqui </span> </a>
-
-
-
     </div>
-
 </body>
-
 </html>
 
 <script>
@@ -177,6 +162,5 @@
             }
         }
     }
-
 
 </script>

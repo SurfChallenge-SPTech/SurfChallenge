@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <img src="./img/logo.png" alt=""> Cruzadinha de Windsurf</title>
+    <title>Cruzadinha de Windsurf</title>
+    <link rel="icon" href="./img/logo.png">
+    <link rel="icon" href="./img/logo.png">
+    <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./css/cruzadinha.css">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +16,10 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <!-- FIM GOOGLE FONTES -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-
     <div class="titulo">
         <h1> Palavras-Cruzadas</h1>
         <h2> Equipamentos do WindSurf </h2>
@@ -163,7 +165,6 @@
 
                 <!-- linha 8 -->
                 <tr>
-
                     <td class="celula-input" id="r1_retranca"></td>
                     <td class="celula-input" id="e_retranca"></td>
                     <td class="celula-input" id="t_retranca"></td>
@@ -173,12 +174,10 @@
                     <td class="celula-input" id="c_retranca"></td>
                     <td class="celula-input" id="a2_retranca"></td>
                     <td class="celula-vazia" id="">5.</td>
-
                 </tr> <!-- fim da linha 8 -->
 
             </table>
-
-        </div>
+        </div><!-- fim tabela-->
     </div> <!-- fim box-azul-claro -->
 </body>
 
@@ -204,10 +203,19 @@
     let listaPalavrasCorretas = [];
 
     function verificar() {
+
         let palavra = (input_palavra.value.toLowerCase());
 
         if (listaPalavrasCorretas.includes(palavra)) {
-            alert("Você já acertou essa palavra!");
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: "Você já acartou essa palavra!",
+                showConfirmButton: false,
+                timer: 1500,
+                color: "#121B79",
+                confirmButtonColor: "#121B79",
+            });
             return;
         }
 
@@ -265,11 +273,44 @@
             a2_retranca.innerHTML = `A`
 
         } else if (palavra == "") {
-            alert("Coloque uma palavra!")
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: `Você precisa colocar uma palavra no campo "Resposta".`,
+                showConfirmButton: false,
+                timer: 2500,
+                color: "#121B79",
+                confirmButtonColor: "#121B79",
+            });
         } else {
-            alert("Verifique se a palavra que você colocou está escrito da forma correta!")
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: `Verifique se a palavra foi escrita corretamente.`,
+                showConfirmButton: false,
+                timer: 2500,
+                color: "#121B79",
+                confirmButtonColor: "#121B79",
+            });
         }
         if (listaPalavrasCorretas.length == 5) {
+            Swal.fire({
+                title: "Parabéns, você finalizou a cruzadinha!",
+                width: 600,
+                padding: "3em",
+                color: "#121B79",
+                confirmButtonColor: "#121B79",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    url("/img/cruzadinhaGif.gif")
+                    left top
+                    no-repeat
+                `,
+            }).then((result) => {
+                if (result['isConfirmed']) {
+                    window.location.href = "plataforma.html"
+                }
+            })
             pontuacaoCruzadinha = 5
             registrarPontuacao()
         }
@@ -321,7 +362,5 @@
 
         })
     }
-
-
 
 </script>

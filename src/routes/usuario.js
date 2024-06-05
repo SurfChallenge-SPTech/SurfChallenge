@@ -15,10 +15,6 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.get("/autenticar/:idUsuario", function (req, res) {
-    usuarioController.pegarIDUsuario(req, res);
-});
-
 // Declarando que pode ser exportado 
 module.exports = router;
 
